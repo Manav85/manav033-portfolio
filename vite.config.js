@@ -6,12 +6,16 @@ import { fileURLToPath } from 'url'
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 export default defineConfig({
+  base: "/manav033-portfolio/",
+
   plugins: [react()],
+
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
     },
   },
+
   build: {
     chunkSizeWarningLimit: 4000,
     rollupOptions: {
