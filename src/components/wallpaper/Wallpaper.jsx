@@ -1,0 +1,73 @@
+import React from 'react'
+import { colors } from '@/theme/tokens'
+import { useDesktopStore } from '@/store/useDesktopStore'
+
+// Built-in wallpaper variants. Index 0 preserves the original look exactly.
+export const WALLPAPERS = [
+  { id: 'portrait', label: 'Editorial Portrait', type: 'image' },
+  { id: 'aurora', label: 'Aurora', type: 'gradient', css: 'linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%)' },
+  { id: 'sunset', label: 'Sunset', type: 'gradient', css: 'linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%)' },
+  { id: 'mono', label: 'Monochrome', type: 'gradient', css: 'linear-gradient(160deg, #232526 0%, #414345 100%)' },
+]
+
+/**
+ * Wallpaper — full-viewport editorial B&W background.
+ * Accepts a `src` prop (base64 or URL) for the default portrait wallpaper.
+ * Switching wallpaperIndex in the store changes the background while
+ * preserving all overlay/vignette behavior. Theme affects overall tint.
+ */
+export default function Wallpaper({ src }) {
+  const { wallpaperIndex, theme } = useDesktopStore()
+  const wallpaper = WALLPAPERS[wallpaperIndex] || WALLPAPERS[0]
+  const isLight = theme === 'light'
+
+  return (
+    <div
+      className="absolute inset-0 overflow-hidden"
+      style={{ zIndex: 0, transition: 'filter 0.4s ease' }}
+      aria-hidden="true"
+    >
+      {/* Photo layer */}
+      {wallpaper.type === 'image' && src ? (
+        <img
+          src={src}
+          alt=""
+          className="w-full h-full object-cover object-center"
+          style={{
+            filter: isLight
+              ? 'grayscale(100%) contrast(1.05) brightness(1.05)'
+              : 'grayscale(100%) contrast(1.1) brightness(0.82)',
+            pointerEvents: 'none',
+            transition: 'filter 0.4s ease',
+          }}
+          draggable={false}
+        />
+      ) : (
+        <div
+          className="w-full h-full"
+          style={{
+            background: wallpaper.type === 'gradient'
+              ? wallpaper.css
+              : 'linear-gradient(160deg, #1a1a1a 0%, #0d0d0d 50%, #111827 100%)',
+            transition: 'background 0.4s ease',
+          }}
+        />
+      )}
+
+      {/* Vignette overlay */}
+      <div
+        className="absolute inset-0"
+        style={{ background: colors.surface.vignette }}
+      />
+
+      {/* Subtle dark/light tint */}
+      <div
+        className="absolute inset-0"
+        style={{
+          background: isLight ? 'rgba(255,255,255,0.12)' : colors.surface.dark,
+          transition: 'background 0.4s ease',
+        }}
+      />
+    </div>
+  )
+}
