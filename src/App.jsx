@@ -4,6 +4,7 @@ import Wallpaper from '@/components/wallpaper/Wallpaper'
 import Desktop from '@/components/desktop/Desktop'
 import WindowManager from '@/components/window-manager/WindowManager'
 import Dock from '@/components/dock/Dock'
+<<<<<<< HEAD
 import MenuBar from '@/components/menubar/MenuBar'
 import { HERO_PORTRAIT } from '@/assets/images/index.js'
 
@@ -17,6 +18,20 @@ import { EDUCATION_WINDOW_CONFIG }    from '@/apps/education/index.js'
 import { CONTACT_WINDOW_CONFIG }      from '@/apps/contact/index.js'
 import { GITHUB_WINDOW_CONFIG }       from '@/apps/github/index.js'
 import { LINKEDIN_WINDOW_CONFIG }     from '@/apps/linkedin/index.js'
+=======
+import { HERO_PORTRAIT } from '@/assets/images/index.js'
+
+// App modules
+import { ABOUT_WINDOW_CONFIG }        from '@/apps/about/index.jsx'
+import { PROJECTS_WINDOW_CONFIG }     from '@/apps/projects/index.jsx'
+import { SKILLS_WINDOW_CONFIG }       from '@/apps/skills/index.jsx'
+import { CERTIFICATES_WINDOW_CONFIG } from '@/apps/certificates/index.jsx'
+import { RESUME_WINDOW_CONFIG }       from '@/apps/resume/index.jsx'
+import { EDUCATION_WINDOW_CONFIG }    from '@/apps/education/index.jsx'
+import { CONTACT_WINDOW_CONFIG }      from '@/apps/contact/index.jsx'
+import { GITHUB_WINDOW_CONFIG }       from '@/apps/github/index.jsx'
+import { LINKEDIN_WINDOW_CONFIG }     from '@/apps/linkedin/index.jsx'
+>>>>>>> 80b0900380644af6b78222a3ca14abfafa638484
 
 import {
   User, FolderOpen, Award, Mail,
@@ -24,7 +39,10 @@ import {
   FileText, GraduationCap, BookOpen,
 } from 'lucide-react'
 
+<<<<<<< HEAD
 // Right-side desktop icons (no position needed — Desktop handles layout)
+=======
+>>>>>>> 80b0900380644af6b78222a3ca14abfafa638484
 const INITIAL_DESKTOP_ICONS = [
   {
     id: 'icon-about',
@@ -33,6 +51,10 @@ const INITIAL_DESKTOP_ICONS = [
     icon: User,
     iconColor: '#ffffff',
     background: 'linear-gradient(135deg, #1e3a8a 0%, #3B82F6 100%)',
+<<<<<<< HEAD
+=======
+    position: { x: 32, y: 32 },
+>>>>>>> 80b0900380644af6b78222a3ca14abfafa638484
     windowConfig: ABOUT_WINDOW_CONFIG,
   },
   {
@@ -42,6 +64,10 @@ const INITIAL_DESKTOP_ICONS = [
     icon: FolderOpen,
     iconColor: '#ffffff',
     background: 'linear-gradient(135deg, #92400e 0%, #F59E0B 100%)',
+<<<<<<< HEAD
+=======
+    position: { x: 32, y: 118 },
+>>>>>>> 80b0900380644af6b78222a3ca14abfafa638484
     windowConfig: PROJECTS_WINDOW_CONFIG,
   },
   {
@@ -51,6 +77,10 @@ const INITIAL_DESKTOP_ICONS = [
     icon: Award,
     iconColor: '#ffffff',
     background: 'linear-gradient(135deg, #065f46 0%, #10B981 100%)',
+<<<<<<< HEAD
+=======
+    position: { x: 32, y: 204 },
+>>>>>>> 80b0900380644af6b78222a3ca14abfafa638484
     windowConfig: SKILLS_WINDOW_CONFIG,
   },
   {
@@ -60,6 +90,10 @@ const INITIAL_DESKTOP_ICONS = [
     icon: BookOpen,
     iconColor: '#ffffff',
     background: 'linear-gradient(135deg, #6d28d9 0%, #8B5CF6 100%)',
+<<<<<<< HEAD
+=======
+    position: { x: 32, y: 290 },
+>>>>>>> 80b0900380644af6b78222a3ca14abfafa638484
     windowConfig: CERTIFICATES_WINDOW_CONFIG,
   },
   {
@@ -69,6 +103,10 @@ const INITIAL_DESKTOP_ICONS = [
     icon: FileText,
     iconColor: '#ffffff',
     background: 'linear-gradient(135deg, #111827 0%, #374151 100%)',
+<<<<<<< HEAD
+=======
+    position: { x: 32, y: 376 },
+>>>>>>> 80b0900380644af6b78222a3ca14abfafa638484
     windowConfig: RESUME_WINDOW_CONFIG,
   },
   {
@@ -78,11 +116,19 @@ const INITIAL_DESKTOP_ICONS = [
     icon: GraduationCap,
     iconColor: '#ffffff',
     background: 'linear-gradient(135deg, #1e3a8a 0%, #7C3AED 100%)',
+<<<<<<< HEAD
+=======
+    position: { x: 32, y: 462 },
+>>>>>>> 80b0900380644af6b78222a3ca14abfafa638484
     windowConfig: EDUCATION_WINDOW_CONFIG,
   },
 ]
 
 const INITIAL_DOCK_ITEMS = [
+<<<<<<< HEAD
+=======
+  // Core apps
+>>>>>>> 80b0900380644af6b78222a3ca14abfafa638484
   {
     id: 'dock-about',
     label: 'About Me',
@@ -146,7 +192,13 @@ const INITIAL_DOCK_ITEMS = [
     background: 'linear-gradient(135deg, #1e40af 0%, #3B82F6 100%)',
     windowConfig: CONTACT_WINDOW_CONFIG,
   },
+<<<<<<< HEAD
   { id: 'sep-1', isSeparator: true },
+=======
+  // Separator
+  { id: 'sep-1', isSeparator: true },
+  // Social / external
+>>>>>>> 80b0900380644af6b78222a3ca14abfafa638484
   {
     id: 'dock-github',
     label: 'GitHub',
@@ -195,6 +247,7 @@ export default function App() {
 
   return (
     <div className="relative w-full h-screen overflow-hidden bg-black">
+<<<<<<< HEAD
       {/* Layer 0: Wallpaper */}
       <Wallpaper src={HERO_PORTRAIT} />
 
@@ -209,6 +262,12 @@ export default function App() {
 
       {/* Layer 4: Menu bar (topmost) */}
       <MenuBar />
+=======
+      <Wallpaper src={HERO_PORTRAIT} />
+      <Desktop />
+      <WindowManager />
+      <Dock />
+>>>>>>> 80b0900380644af6b78222a3ca14abfafa638484
     </div>
   )
 }

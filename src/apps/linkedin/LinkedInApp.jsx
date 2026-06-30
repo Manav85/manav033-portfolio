@@ -102,7 +102,11 @@ export default function LinkedInApp() {
     <div className="flex flex-col bg-white h-full" style={{ fontFamily: "'Inter', system-ui, sans-serif" }}>
       <Banner />
 
+<<<<<<< HEAD
       <div className="flex-1 overflow-y-auto scrollable" style={{ minHeight: 0 }}>
+=======
+      <div className="flex-1 overflow-y-auto scrollable">
+>>>>>>> 80b0900380644af6b78222a3ca14abfafa638484
         {/* Identity block */}
         <div
           className="px-4 pb-4 pt-8"

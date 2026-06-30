@@ -1,20 +1,44 @@
 import { create } from 'zustand'
 
+<<<<<<< HEAD
+=======
+/**
+ * Central Zustand store for the desktop OS layer.
+ * Manages windows, desktop icons, dock, and active states.
+ *
+ * IMPORTANT: windowConfig.content must be a factory function () => ReactNode,
+ * not a pre-instantiated JSX element. openWindow calls it to get a fresh tree.
+ */
+
+>>>>>>> 80b0900380644af6b78222a3ca14abfafa638484
 let nextWindowId = 1
 
 const getDefaultPosition = () => ({
   x: typeof window !== 'undefined' ? Math.max(60, Math.round(window.innerWidth / 2 - 260)) : 200,
+<<<<<<< HEAD
   y: typeof window !== 'undefined' ? Math.max(36, Math.round(window.innerHeight / 2 - 270)) : 100,
+=======
+  y: typeof window !== 'undefined' ? Math.max(40, Math.round(window.innerHeight / 2 - 270)) : 100,
+>>>>>>> 80b0900380644af6b78222a3ca14abfafa638484
 })
 
 const DEFAULT_WINDOW_SIZE = { width: 520, height: 540 }
 
 export const useDesktopStore = create((set, get) => ({
+<<<<<<< HEAD
+=======
+  // ── Windows ──────────────────────────────────────────────
+>>>>>>> 80b0900380644af6b78222a3ca14abfafa638484
   windows: [],
   activeWindowId: null,
 
   openWindow: (config) => {
     const existing = get().windows.find(w => w.appId === config.appId)
+<<<<<<< HEAD
+=======
+
+    // Already open — just focus it (unmimimize if needed)
+>>>>>>> 80b0900380644af6b78222a3ca14abfafa638484
     if (existing) {
       if (existing.isMinimized) {
         set(state => ({
@@ -30,6 +54,11 @@ export const useDesktopStore = create((set, get) => ({
     }
 
     const id = `window-${nextWindowId++}`
+<<<<<<< HEAD
+=======
+
+    // content is a factory fn — call it to get a fresh React tree
+>>>>>>> 80b0900380644af6b78222a3ca14abfafa638484
     const contentNode = typeof config.content === 'function'
       ? config.content()
       : config.content
@@ -42,9 +71,12 @@ export const useDesktopStore = create((set, get) => ({
       position: config.position || getDefaultPosition(),
       size: config.size || { ...DEFAULT_WINDOW_SIZE },
       isMinimized: false,
+<<<<<<< HEAD
       isMaximized: false,
       // Store pre-maximize state for restore
       preMaximizeState: null,
+=======
+>>>>>>> 80b0900380644af6b78222a3ca14abfafa638484
       zIndex: 20 + get().windows.length,
     }
 
@@ -52,6 +84,10 @@ export const useDesktopStore = create((set, get) => ({
       windows: [...state.windows, newWindow],
       activeWindowId: id,
     }))
+<<<<<<< HEAD
+=======
+
+>>>>>>> 80b0900380644af6b78222a3ca14abfafa638484
     return id
   },
 
@@ -92,12 +128,17 @@ export const useDesktopStore = create((set, get) => ({
   minimizeWindow: (id) => {
     set(state => ({
       windows: state.windows.map(w =>
+<<<<<<< HEAD
         w.id === id ? { ...w, isMinimized: true, isMaximized: false } : w
+=======
+        w.id === id ? { ...w, isMinimized: true } : w
+>>>>>>> 80b0900380644af6b78222a3ca14abfafa638484
       ),
       activeWindowId: state.activeWindowId === id ? null : state.activeWindowId,
     }))
   },
 
+<<<<<<< HEAD
   maximizeWindow: (id) => {
     set(state => {
       const win = state.windows.find(w => w.id === id)
@@ -146,11 +187,18 @@ export const useDesktopStore = create((set, get) => ({
     set(state => ({
       windows: state.windows.map(w =>
         w.id === id ? { ...w, isMinimized: false, isMaximized: false } : w
+=======
+  restoreWindow: (id) => {
+    set(state => ({
+      windows: state.windows.map(w =>
+        w.id === id ? { ...w, isMinimized: false } : w
+>>>>>>> 80b0900380644af6b78222a3ca14abfafa638484
       ),
       activeWindowId: id,
     }))
   },
 
+<<<<<<< HEAD
   desktopIcons: [],
   setDesktopIcons: (icons) => set({ desktopIcons: icons }),
 
@@ -261,4 +309,16 @@ export const useDesktopStore = create((set, get) => ({
       return { windows }
     })
   },
+=======
+  // ── Desktop Icons ─────────────────────────────────────────
+  desktopIcons: [],
+  setDesktopIcons: (icons) => set({ desktopIcons: icons }),
+
+  // ── Dock ─────────────────────────────────────────────────
+  dockItems: [],
+  setDockItems: (items) => set({ dockItems: items }),
+
+  // ── Helpers ───────────────────────────────────────────────
+  closeAllWindows: () => set({ windows: [], activeWindowId: null }),
+>>>>>>> 80b0900380644af6b78222a3ca14abfafa638484
 }))

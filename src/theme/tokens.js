@@ -89,5 +89,8 @@ export const zIndex = {
   windows: 20,
   dock: 50,
   tooltip: 60,
+<<<<<<< HEAD
   menuBar: 100,
+=======
+>>>>>>> 80b0900380644af6b78222a3ca14abfafa638484
 }

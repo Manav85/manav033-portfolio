@@ -11,8 +11,13 @@ export const PROFILE = {
   tagline: 'Building intelligent systems at the intersection of health, cloud, and human experience.',
   location: 'Gujarat, India',
   email: 'manav@example.com',        // placeholder — update with real address
+<<<<<<< HEAD
   github: 'https://github.com/manavpatel',
   linkedin: 'https://linkedin.com/in/manavpatel',
+=======
+  github: 'https://github.com/manav85',
+  linkedin: 'https://www.linkedin.com/in/manavpatel85?utm_source=share_via&utm_content=profile&utm_medium=member_android',
+>>>>>>> 80b0900380644af6b78222a3ca14abfafa638484
   twitter: 'https://x.com/manavpatel',
   instagram: 'https://instagram.com/manavpatel',
 }

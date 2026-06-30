@@ -6,12 +6,20 @@ import { fileURLToPath } from 'url'
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 export default defineConfig({
+<<<<<<< HEAD
   plugins: [react()],
+=======
+  base: "/manav033-portfolio/",
+
+  plugins: [react()],
+
+>>>>>>> 80b0900380644af6b78222a3ca14abfafa638484
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
     },
   },
+<<<<<<< HEAD
   esbuild: {
     // Allow JSX in .js files (needed for apps/*/index.js factory functions)
     loader: 'jsx',
@@ -25,6 +33,9 @@ export default defineConfig({
       },
     },
   },
+=======
+
+>>>>>>> 80b0900380644af6b78222a3ca14abfafa638484
   build: {
     chunkSizeWarningLimit: 4000,
     rollupOptions: {
@@ -38,4 +49,8 @@ export default defineConfig({
       },
     },
   },
+<<<<<<< HEAD
 })
+=======
+})
+>>>>>>> 80b0900380644af6b78222a3ca14abfafa638484
